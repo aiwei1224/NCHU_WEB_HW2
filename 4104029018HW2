@@ -1,55 +1,77 @@
-<!DOCTYPE html>
 <html>
-<head>
-        <title>About Me</title>
-		<style>
-		 html {
-            height: 100%;
-        }
-        body {
-		
-            background-image: url(http://www.anawalls.com/repic/image.php?src=http://www.anawalls.com/images/fantasy/stones-wood-dark-light-castle.jpg&h=800&w=1280);
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            background-position: center;
-            background-size: cover;
-        }
-		
-	#container { 
-    margin-top:5px; 
-    margin-left:10%; 
-    margin-right:auto; 
-    margin-bottom:20px; 
-    border: 1px solid 000000; 
-}
-		#container { 
-padding-top:15px; 
-padding-left:10px; 
-padding-right:30px; 
-padding-bottom:40px; 
-border: 1px solid 000000; 
-}
-				
-			
-	</style>	
-</head>
-
+<center><head>問卷調查</title>
+ 	
+	<style>
+	body{
+	background-color:MediumSlateBlue;
+	}
+	</body>
+ 	table, td, th {
+ 		border: 1px solid black;
+ 		border-collapse: collapse;
+ 	}
+ 	</style>
+ </head>
 <body>
-<center><div id="container"><font size="6"><font face="cursive"><font color="white">About Me</font></font></font></div>
-<a href="./Page1.html"><font size="4"><font face="cursive"><font color="white">more >< </font></font></a></h3>
-<br>
-<a href="https://www.facebook.com/ai.wei.7902"><img src="https://img.clipartfox.com/a4c57cd613bb869f49e8935298f3aa5f_-sleeping-pikachu-id-hd-pikachu-clipart_1213-818.jpeg" alt="aiwei" width="400px" height="300px"></a></center>
-
-<form action="file:///C:/Users/t321/Desktop/%E9%99%B3%E8%89%BE%E8%96%87.html"><font color="white">帳號：</font><br>
-<input type="text" name="account" placeholder="請輸入帳號" />
-<br>
-密碼：<br>
-<input type="password" name="pwd" placeholder="請輸入密碼" />
-<br><br>
-<p><input type="reset" value="清除表單" />;
-<input type="submit" value="登入" />
-</form>
-
-
+<form name="form1">
+	名字：<INPUT name="username" type=text size=10 maxlength=20><P>
+	生日：<INPUT name="birth" type=date><P>
+	性別：<INPUT name="sex" type=radio value="男">男
+	     <INPUT name="sex" type=radio value="女">女<P>
+	興趣（可複選）：
+		<INPUT name="f1" type=checkbox value="read">閱讀
+		<INPUT name="f1" type=checkbox value="music">音樂
+		<INPUT name="f1" type=checkbox value="chat">聊天<P>
+	自傳：
+		<br><textarea name="note" col="10" rows="5"></textarea><br>
+	<input type="button" value="送出" onClick="a()">
+	<input type="reset" value="重新輸入">
+</form><br><br>
+<table>
+ 	<tr>
+		<td>名字：</td>
+		<td id="tname"></td>
+ 	</tr>
+ 	<tr>
+		<td>生日：</td>
+		<td id="tbirth"></td>
+	</tr>
+ 	<tr>
+		<td>性別：</td>
+		<td id="tsex"></td>
+ 	</tr>
+ 	<tr>
+		<td>興趣：</td>
+		<td id="thobby"></td>
+ 	</tr>
+ 	<tr>
+		<td>自傳：</td>
+		<td id="tnote"></td>
+ 	</tr>
+ </table>
+<script>
+function a(){
+	var name = document.form1.username.value;
+	var birthd = document.form1.birth.value;
+	var sexd = document.form1.sex.value;
+	var hobbyd = "";
+	for(i=0;i<document.forms['form1']['f1'].length;i++){
+		if(document.forms['form1']['f1'][i].checked){
+			hobbyd += document.forms['form1']['f1'][i].value + ",";
+			}
+	}
+    var noted = document.form1.note.value;
+	/*document.write("名字：" + name + "</br>");
+	document.write("生日：" + birthd + "</br>");
+	document.write("性別：" + sexd + "</br>");
+	document.write("興趣：" + hobbyd + "</br>");
+	document.write("自傳：" + noted + "</br>");*/
+	tname.innerHTML = name;
+	tbirth.innerHTML = birthd;
+	tsex.innerHTML = sexd;
+	thobby.innerHTML = hobbyd;
+	tnote.innerHTML = noted;
+}
+</script>
 </body>
 </html>
